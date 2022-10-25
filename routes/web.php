@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\MovieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,9 @@ use Illuminate\Support\Facades\Route;
 //     return view('admin.dashboard');
 // });
 
-Route::view('/', 'admin.dashboard');
+Route::group(['prefix' => 'admin'], function () {
+    Route::view('/', 'admin.dashboard')->name('admin.dashboard');
+
+    Route::get('/movie', [MovieController::class, 'index'])->name('admin.movie');
+    Route::get('/movie/create', [MovieController::class, 'create'])->name('admin.movie.create');
+});
