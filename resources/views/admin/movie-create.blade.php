@@ -19,6 +19,12 @@
       {{-- @dd($errors->all()) --}}
     @endif
 
+    @if(session()->has('success'))
+      <div class="alert alert-success">
+        {{ session('success') }}
+      </div>
+    @endif
+
     <div class="card card-primary">
       <div class="card-header">
         <h3 class="card-title">Create Movie</h3>

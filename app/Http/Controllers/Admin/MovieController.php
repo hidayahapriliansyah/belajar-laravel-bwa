@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use App\Models\Movie;
 
 class MovieController extends Controller
 {
@@ -43,9 +44,14 @@ class MovieController extends Controller
     $originalSmallThumbnailName = Str::random(10).$smallThumbnail->getClientOriginalName();
     $originalLargeThumbnailName = Str::random(10).$largeThumbnail->getClientOriginalName();
 
+    $data['small_thumbnail'] = $originalSmallThumbnailName;
+    $data['large_thumbnail'] = $originalLargeThumbnailName;
+
     $smallThumbnail->storeAs('public/thumbnail', $originalSmallThumbnailName);
     $largeThumbnail->storeAs('public/thumbnail', $originalLargeThumbnailName);
 
-    dd($originalLargeThumbnailName, $originalSmallThumbnailName);
+    Movie::create($data);
+
+    return redirect()->route('admin.movie.create')->with('success', 'Movie created!');
   }
 }
