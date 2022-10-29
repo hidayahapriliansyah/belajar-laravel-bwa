@@ -50,7 +50,16 @@
                       <td>{{ $movie->categories }}</td>
                       <td>{{ $movie->casts }}</td>
                       <td>
-                        <a href="{{ route('admin.movie.edit', $movie->id) }}" class="btn btn-secondary">Edit</a>
+                        <a href="{{ route('admin.movie.edit', $movie->id) }}" class="btn btn-secondary">
+                          <i class="fas fa-edit"></i>
+                        </a>
+                        <form method="post" action="{{ route('admin.movie.destroy', $movie->id) }}" class="mt-2">
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit" class="btn btn-danger">
+                            <i class="fas fa-trash-alt"></i>
+                          </button>
+                        </form>
                       </td>
                       @endforeach
                     </tr>
