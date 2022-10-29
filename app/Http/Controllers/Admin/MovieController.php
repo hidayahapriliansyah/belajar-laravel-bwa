@@ -56,4 +56,16 @@ class MovieController extends Controller
 
     return redirect()->route('admin.movie.create')->with('success', 'Movie created!');
   }
+
+  public function edit($id)
+  {
+    $movie = Movie::find($id);
+
+    return view('admin.movie-edit', [ 'movie' => $movie ]);
+  }
+
+  public function update(Request $request, $id)
+  {
+    dd($request, $id);
+  }
 }

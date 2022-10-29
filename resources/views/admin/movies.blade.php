@@ -37,14 +37,16 @@
                       <td></td>
                       <td>{{ $movie->title }}</td>
                       <td>
-                        <img src="{{ asset('storage/thumbnail/'.$movie->small_thumbnail) }}" alt="{{ $movie->small_thumbnail }}" width="50%">
+                        <img src="{{ asset('storage/thumbnail/'.$movie->small_thumbnail) }}" alt="{{ $movie->small_thumbnail }}" width="90%">
                       </td>
                       <td>
-                        <img src="{{ asset('storage/thumbnail/'.$movie->large_thumbnail) }}" alt="{{ $movie->large_thumbnail }}" width="50%">
+                        <img src="{{ asset('storage/thumbnail/'.$movie->large_thumbnail) }}" alt="{{ $movie->large_thumbnail }}" width="90%">
                       </td>
                       <td>{{ $movie->categories }}</td>
                       <td>{{ $movie->casts }}</td>
-                      <td></td>
+                      <td>
+                        <a href="{{ route('admin.movie.edit', $movie->id) }}" class="btn btn-secondary">Edit</a>
+                      </td>
                       @endforeach
                     </tr>
                 </tbody>
