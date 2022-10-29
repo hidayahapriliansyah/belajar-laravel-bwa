@@ -19,25 +19,33 @@
 
           <div class="row">
             <div class="col-md-12">
-              <table id="example2" class="table table-bordered table-hover">
+              <table id="movies" class="table table-bordered table-hover">
                 <thead>
                   <tr>
                     <th>Id</th>
                     <th>Title</th>
                     <th>Thumbnail</th>
+                    <th>Big Thumbnail</th>
                     <th>Categories</th>
                     <th>Casts</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                  <tr>
+                      @foreach ($movies as $movie)
                       <td></td>
+                      <td>{{ $movie->title }}</td>
+                      <td>
+                        <img src="{{ asset('storage/thumbnail/'.$movie->small_thumbnail) }}" alt="{{ $movie->small_thumbnail }}" width="50%">
+                      </td>
+                      <td>
+                        <img src="{{ asset('storage/thumbnail/'.$movie->large_thumbnail) }}" alt="{{ $movie->large_thumbnail }}" width="50%">
+                      </td>
+                      <td>{{ $movie->categories }}</td>
+                      <td>{{ $movie->casts }}</td>
                       <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      @endforeach
                     </tr>
                 </tbody>
               </table>
@@ -47,4 +55,10 @@
       </div>
     </div>
   </div>
+@endsection
+
+@section('js')
+<script>
+  $('#movies').dataTable();
+</script>
 @endsection
