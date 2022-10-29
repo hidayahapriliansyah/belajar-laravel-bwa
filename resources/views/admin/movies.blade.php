@@ -3,13 +3,18 @@
 @section('title', 'Movies')
 
 @section('content')
+  @if(session()->has('success'))
+  <div class="class-alert alert-success">
+    {{ session('success') }}
+  </div>
+  @endif
   <div class="row">
     <div class="col-md-12">
       <div class="card card-primary">
         <div class="card-header">
           <h3 class="card-title">Movies</h3>
         </div>
-        
+
         <div class="card-body">
           <div class="row">
             <div class="col-md-12">
