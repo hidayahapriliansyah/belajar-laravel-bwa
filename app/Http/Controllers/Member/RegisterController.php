@@ -19,7 +19,7 @@ class RegisterController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
-            'phone_number' => 'required',
+            'phone_number' => 'required|unique:App\Models\User,phone_number',
             'password' => 'required|min:6'
         ]);
 

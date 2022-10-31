@@ -53,3 +53,4 @@ Route::view('/', 'index');
 Route::get('/register', [RegisterController::class, 'index'])->name('member.register');
 Route::post('/register/store', [RegisterController::class, 'store'])->name('member.register.store');
 Route::get('/login', [MemberLoginController::class, 'index'])->name('member.login');
+Route::post('/login', [MemberLoginController::class, 'auth'])->name('member.login.auth');
