@@ -45,3 +45,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin.auth'], function () {
         Route::delete('/delete/{id}', [MovieController::class,'destroy'])->name('admin.movie.destroy');
     });
 });
+
+Route::view('/', 'index');
