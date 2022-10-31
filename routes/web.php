@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\MovieController;
 use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\LoginControllerController;
 use App\Http\Controllers\Member\RegisterController;
+use App\Http\Controllers\Member\LoginController as MemberLoginController;
 use App\Http\Middleware\AdminMiddleware;
 
 /*
@@ -51,3 +52,4 @@ Route::view('/', 'index');
 
 Route::get('/register', [RegisterController::class, 'index'])->name('member.register');
 Route::post('/register/store', [RegisterController::class, 'store'])->name('member.register.store');
+Route::get('/login', [MemberLoginController::class, 'index'])->name('member.login');
