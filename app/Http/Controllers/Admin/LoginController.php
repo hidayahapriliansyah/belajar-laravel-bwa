@@ -10,6 +10,10 @@ class LoginController extends Controller
 {
     public function index()
     {
+        if(Auth::user()){
+            return redirect()->route('admin.movie');
+        }
+
         return view('admin.auth');
     }
 
@@ -32,5 +36,16 @@ class LoginController extends Controller
         return back()->withErrors([
             'error' => 'Your credentials are wrong!'
         ])->withInput();
+    }
+
+    public function logout (Request $request)
+    {
+        Auth::logout();
+    
+        $request->session()->invalidate();
+    
+        $request->session()->regenerateToken();
+    
+        return redirect()->route('admin.login');
     }
 }

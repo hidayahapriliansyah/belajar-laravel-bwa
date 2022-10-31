@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\MovieController;
 use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\LoginControllerController;
+use App\Http\Middleware\AdminMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,8 @@ Route::post('/admin/login', [LoginController::class, 'authenticate'])->name('adm
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admin.auth'], function () {
     Route::view('/', 'admin.dashboard')->name('admin.dashboard');
+
+    Route::get('/logout', [LoginController::class,'logout'])->name('admin.logout');
 
     Route::get('/transaction', [TransactionController::class, 'index'])->name('admin.transaction');
 
