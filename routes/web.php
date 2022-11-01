@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\LoginControllerController;
 use App\Http\Controllers\Member\RegisterController;
 use App\Http\Controllers\Member\LoginController as MemberLoginController;
+use App\Http\Controllers\Member\DashboardController;
 use App\Http\Middleware\AdminMiddleware;
 
 /*
@@ -54,3 +55,7 @@ Route::get('/register', [RegisterController::class, 'index'])->name('member.regi
 Route::post('/register/store', [RegisterController::class, 'store'])->name('member.register.store');
 Route::get('/login', [MemberLoginController::class, 'index'])->name('member.login');
 Route::post('/login', [MemberLoginController::class, 'auth'])->name('member.login.auth');
+
+Route::group(['prefix' => 'member'], function() {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('member.dashboard');
+});

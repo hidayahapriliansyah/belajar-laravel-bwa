@@ -31,14 +31,14 @@
     <!-- Desktop Only -->
     <div class="mx-auto max-w-screen hidden lg:block">
         <!-- START: Sidebar -->
-        @include('movie.layouts.sidebar')
+        @include('member.layouts.sidebar')
         <!-- END: Sidebar -->
 
         <!-- START: Content -->
         <div class="ml-[410px] pr-[50px] overflow-hidden">
             <div class="py-[70px] flex flex-col gap-[50px]">
                 <!-- Navbar -->
-                @include('movie.layouts.navbar')
+                @include('member.layouts.navbar')
                 <!-- /Navbar -->
 
                 @yield('content')
