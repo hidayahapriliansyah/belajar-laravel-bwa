@@ -5,9 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\MovieController;
 use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\LoginControllerController;
+
 use App\Http\Controllers\Member\RegisterController;
 use App\Http\Controllers\Member\LoginController as MemberLoginController;
 use App\Http\Controllers\Member\DashboardController;
+use App\Http\Controllers\Member\MovieController as MemberMovieController;
 use App\Http\Middleware\AdminMiddleware;
 
 /*
@@ -58,4 +60,5 @@ Route::post('/login', [MemberLoginController::class, 'auth'])->name('member.logi
 
 Route::group(['prefix' => 'member'], function() {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('member.dashboard');
+    Route::get('/movie/{id}', [MemberMovieController::class, 'show'])->name('member.movie-detail');
 });
