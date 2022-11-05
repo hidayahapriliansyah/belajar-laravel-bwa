@@ -37,7 +37,7 @@ class TransactionController extends Controller
         $params = array(
             'transaction_details' => array(
                 // 'order_id' => rand(),
-                'order_id' => $transaction->id,
+                'order_id' => $transaction->transaction_code,
                 'gross_amount' => $transaction->amount,
             ),
             'customer_details' => array(
