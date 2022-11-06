@@ -12,7 +12,9 @@ use App\Http\Controllers\Member\DashboardController;
 use App\Http\Controllers\Member\MovieController as MemberMovieController;
 use App\Http\Controllers\Member\PricingController;
 use App\Http\Controllers\Member\TransactionController as MemberTransactionController;
+use App\Http\Controllers\Member\UserPremiumController;
 use App\Http\Middleware\AdminMiddleware;
+use App\Models\UserPremium;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,4 +72,6 @@ Route::group(['prefix' => 'member', 'middleware' => 'auth'], function() {
     Route::post('/transaction', [MemberTransactionController::class, 'store'])->name('member.transaction.store');
 
     Route::get('/movie/{id}', [MemberMovieController::class, 'show'])->name('member.movie-detail');
+
+    Route::get('/subscription', [UserPremiumController::class, 'index'])->name('member.user_premium.index');
 });

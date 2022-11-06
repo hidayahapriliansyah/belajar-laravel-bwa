@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Package;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class UserPremium extends Model
 {
@@ -16,4 +17,9 @@ class UserPremium extends Model
         'user_id',
         'end_of_subscription'
     ];
+
+    public function package()
+    {
+        return $this->belongsTo(Package::class);
+    }
 }
