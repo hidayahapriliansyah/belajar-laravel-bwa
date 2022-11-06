@@ -22,4 +22,11 @@ class UserPremiumController extends Controller
 
         return view('member.subscription', ['user_premium' => $userPremium]);
     }
+
+    public function destroy($id)
+    {
+        UserPremium::destroy($id);
+
+        return redirect()->route('member.pricing');
+    }
 }
