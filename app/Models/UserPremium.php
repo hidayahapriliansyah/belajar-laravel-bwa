@@ -14,6 +14,6 @@ class UserPremium extends Model
     protected $fillable = [
         'package_id',
         'user_id',
-        'end_of_subcription'
+        'end_of_subscription'
     ];
 }

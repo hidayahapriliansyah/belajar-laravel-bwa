@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('phone_number')->unique();
             $table->string('password');
             $table->string('avatar')->nullable();
-            $table->enum('role', ['user', 'admin']);
+            $table->enum('role', ['member', 'admin']);
             $table->timestamps();
         });
     }
